@@ -1,0 +1,263 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background-color: #f0f0f0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border: 8px solid #7dd3fc;
+  border-radius: 50%;
+  top: -100px;
+  left: -100px;
+  opacity: 0.4;
+}
+
+body::after {
+  content: "";
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  background-image: radial-gradient(#22d3ee 2px, transparent 2px);
+  background-size: 15px 15px;
+  right: 40px;
+  top: 100px;
+  opacity: 0.6;
+}
+
+.app {
+  width: 100%;
+  max-width: 650px;
+  padding: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.card {
+  background: #fff;
+  padding: 35px;
+  border-radius: 20px 20px 140px 20px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.266);
+  position: relative;
+  z-index: 2;
+}
+
+.input-group {
+  display: flex;
+  gap: 20px;
+}
+
+.field {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  position: relative;
+}
+
+label {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #888;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 6px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 20px;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+input:focus {
+  border-color: #7c3aed;
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+  outline: none;
+}
+
+.field.error input {
+  border-color: red;
+}
+
+.field.error label {
+  color: red;
+}
+
+.field small {
+  font-size: 11px;
+  color: red;
+  min-height: 14px;
+}
+
+.divider {
+  margin: 30px 0;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.divider::before {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #ddd;
+}
+
+.btn {
+  background: #7c3aed;
+  border: none;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  margin-left: 15px;
+  position: relative;
+  z-index: 3;
+  transition: 0.25s ease;
+  overflow: hidden;
+}
+
+.btn:hover {
+  background: black;
+  transform: scale(1.1);
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at var(--x) var(--y),
+    rgba(255,255,255,0.35),
+    transparent 40%);
+  opacity: 0;
+  transition: 0.2s;
+}
+
+.btn:hover::before {
+  opacity: 1;
+}
+
+.output h1 {
+  font-size: 52px;
+  font-weight: 900;
+  line-height: 1.1;
+}
+
+.output span {
+  color: #7c3aed;
+}
+
+.blur {
+  filter: blur(8px);
+  opacity: 0.6;
+}
+
+.pop {
+  transform: scale(1.2);
+  transition: 0.2s;
+}
+
+.cursor-trail {
+  position: fixed;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, rgba(124,58,237,0.25), transparent 70%);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: left 0.08s linear, top 0.08s linear;
+  z-index: 1;
+}
+
+.zigzag-1 {
+  position: absolute;
+  bottom: 40px;
+  right: 80px;
+  width: 120px;
+  height: 40px;
+  background: repeating-linear-gradient(45deg,
+      #fca5a5,
+      #fca5a5 5px,
+      transparent 5px,
+      transparent 10px);
+  opacity: 0.5;
+}
+
+.zigzag-2 {
+  position: absolute;
+  bottom: 400px;
+  left: 130px;
+  width: 190px;
+  height: 40px;
+  background: repeating-linear-gradient(45deg,
+      #476cd2,
+      #476cd2 5px,
+      transparent 5px,
+      transparent 10px);
+  opacity: 0.5;
+}
+
+.zigzag-3 {
+  position: absolute;
+  top: 50px;
+  right: 290px;
+  width: 299px;
+  height: 40px;
+  background: repeating-linear-gradient(45deg,
+      #24bc21,
+      #24bc21 5px,
+      transparent 5px,
+      transparent 10px);
+  opacity: 0.5;
+}
+
+.left-dots {
+  position: absolute;
+  left: 30px;
+  bottom: 100px;
+  width: 100px;
+  height: 100px;
+  background-image: radial-gradient(#67e8f9 2px, transparent 2px);
+  background-size: 15px 15px;
+  opacity: 0.9;
+}
+
+.zigzag-1,
+.zigzag-2,
+.zigzag-3,
+.left-dots {
+  pointer-events: none;
+}
+
+@media (max-width: 500px) {
+  .input-group {
+    flex-direction: column;
+  }
+
+  .output h1 {
+    font-size: 38px;
+  }
+
+  .btn {
+    width: 50px;
+    height: 50px;
+  }
+}

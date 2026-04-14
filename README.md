@@ -18,7 +18,7 @@ A modern age calculator that shows age in years, months, and days with accurate 
 (Add your deployed link here)
 
 ## 📁 Repository
-(Add your GitHub repo link here)
+[(Age Calculator Repo)](https://github.com/Rudransh-Chunn/Age-Calculator)
 
 ## 💡 What I Learned
 - Handling date validation in JavaScript
